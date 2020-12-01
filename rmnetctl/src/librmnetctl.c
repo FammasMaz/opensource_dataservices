@@ -100,7 +100,7 @@ struct rmnetctl_uplink_params {
 	uint16_t byte_count;
 #ifdef NO_UPLINK_FEATURES
 	uint16_t packet_count;
-#elseif
+#else
 	uint8_t packet_count;
 	uint8_t features;
 #endif
@@ -1623,7 +1623,7 @@ int rtrmnet_ctl_getvnd(rmnetctl_hndl_t *hndl, char *vndname,
 #ifdef NO_UPLINK_FEATURES
 		if (features)
 			*features = 0;
-#elseif
+#else
 		if (features)
 			*features = ul_agg->features;
 #endif
